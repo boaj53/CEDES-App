@@ -36,7 +36,7 @@ function Login({ navigation })
             placeholder='********' placeholderTextColor='#0174BE' textContentType='password' secureTextEntry={true}>
           </TextInput>
   
-          <TouchableOpacity style={styles.boton} onPress = { () => {navigation.navigate('Carreras')} }>
+          <TouchableOpacity style={styles.boton} onPress = { () => {navigation.navigate('semestres')} }>
             <Text style={styles.botonTxt}>Ingresa</Text>
           </TouchableOpacity> 
           {/* Pressable */}

@@ -73,6 +73,18 @@ const styles = StyleSheet.create({
         left:17,
         height:20,
         width:20
+    },
+    subComSep:{
+        marginTop:15,
+        marginBottom:15,
+        marginHorizontal:10,
+        borderBottomWidth:2,
+        borderBlockEndColor:'#0174BE', 
+    },
+    subComSepT:{
+        fontSize:25,
+        fontWeight:'bold',
+        color:'#0174BE'
     }
 });
 export default styles;
