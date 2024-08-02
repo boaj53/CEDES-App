@@ -90,4 +90,4 @@ INSERT INTO Detalles (idCarrera,
                      TextoPrincip,
                      TextoSec,
                      BottonName,
-                     Link) VALUES (1, 1, 1, 1, 'Primer detalle', 'Lorem ipsum', 'Hola mundo', 'Nombre botton', 'https://www.youtube.com/watch?v=dQw4w9WgXcQ');
+                     Link ) VALUES (1, 1, 1, 1, 'Primer detalle', 'Lorem ipsum', 'Hola mundo', 'Nombre botton', 'https://www.youtube.com/watch?v=dQw4w9WgXcQ');

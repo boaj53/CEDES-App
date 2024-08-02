@@ -70,11 +70,11 @@ export default function Materia({ navigation }) {
         </TouchableOpacity>
 
         <View>
-          {temas[SubCompetencia.idSubCom]?.map((tema) => (
+          {temas[SubCompetencia.idSubCom]?.map( ( tema ) => (
             <TouchableOpacity key={tema.idDetalles} style={styles.globo} onPress={() => {
               setSubComp(tema.idDetalles);
               navigation.navigate('Temas');
-            }}>
+            } } >
               <View style={styles.globoTextA}>
                 <Text style={styles.TitleMateria}>{tema.NombreDetalles}</Text>
               </View>
