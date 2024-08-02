@@ -82,4 +82,12 @@ INSERT INTO Materia (idCarrera, idSemestre, NombreMateria, Notificacion) VALUES 
 
 INSERT INTO SubCompetencia (idCarrera, idSemestre, idMateria, NombreSubCom, Notificacion) VALUES (1, 1, 1, 'Primer subcompetencia', 1);
 
-INSERT INTO Detalles (idCarrera, idSemestre, idMateria, idSubCom, NombreDetalles, TextoPrincip, TextoSec, BottonName, Link) VALUES (1, 1, 1, 1, 'Primer detalle', 'Lorem ipsum', 'Hola mundo', 'Nombre botton', 'https://www.youtube.com/watch?v=dQw4w9WgXcQ');
+INSERT INTO Detalles (idCarrera,
+                     idSemestre,
+                     idMateria,
+                     idSubCom,
+                     NombreDetalles,
+                     TextoPrincip,
+                     TextoSec,
+                     BottonName,
+                     Link) VALUES (1, 1, 1, 1, 'Primer detalle', 'Lorem ipsum', 'Hola mundo', 'Nombre botton', 'https://www.youtube.com/watch?v=dQw4w9WgXcQ');
