@@ -88,7 +88,7 @@ export default function Tema () {
     return (
         <SafeAreaView>
             <Back />
-            <BtnArchivar />
+            {/* <BtnArchivar /> */}
             <ScrollView >
                 <Body />
             </ScrollView>

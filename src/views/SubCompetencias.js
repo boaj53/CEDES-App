@@ -43,15 +43,11 @@ export default function Materia({ navigation }) {
             db.transaction(tx => {
               tx.executeSql(
                 'SELECT * FROM Detalles WHERE idSubCom = ?;',
-                [subComp.idDetalles],
+                [subComp.idSubCom],
                 (tx, results) => {
                   let rows = results.rows._array;
                   temasTemp[subComp.idSubCom] = rows;
                   resolve();
-                  console.log('idSubCom',subComp.idSubCom);
-                  console.log('idDeta',subComp.idMateria);
-
-                  console.log(rows);
                 },
                 (tx, error) => {
                   console.log(`Error fetching details for subcompetencia ${subComp.idSubCom}`, error);
