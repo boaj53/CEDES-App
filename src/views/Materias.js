@@ -1,18 +1,16 @@
 import { StatusBar } from 'expo-status-bar';
-import {Text, View, SafeAreaView, TextInput, Pressable, Image, ScrollView, TouchableOpacity } from 'react-native'; 
-// import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { Text, View, SafeAreaView, TextInput, Pressable, Image, ScrollView, TouchableOpacity } from 'react-native'; 
 import React, { useEffect, useState, useContext } from 'react';
 import * as SQLite from 'expo-sqlite/legacy';
 import { GlobalContext } from '../database/GlobalContext';
+import { decode as atob } from 'base-64';
 
 import styles from '../styles/styleMaterias';
-import prueba from '../images/Baner.jpg';
 import Icon from '../images/nottingNew.png';
 
-const db = SQLite.openDatabase('myDatabase.db');
+const db = SQLite.openDatabase('myDatabase.db'); 
 
-export default function Materia ({ navigation }) {
-
+export default function Materia({ navigation }) {
   const { globalVariable, setMateria } = useContext(GlobalContext);
   const [materias, _setMaterias] = useState([]);
 
@@ -25,6 +23,7 @@ export default function Materia ({ navigation }) {
         (tx, results) => {
           let rows = results.rows._array;
           _setMaterias(rows);
+          console.log(rows);
         },
         (tx, error) => {
           console.log("Error fetching data from database", error);
@@ -34,34 +33,35 @@ export default function Materia ({ navigation }) {
   }, [globalVariable]);
 
   const renderMaterias = () => {
-
     if (materias.length === 0) {
-      return <Text> No hay meterias disponibles </Text>;
+      return <Text>No hay materias disponibles</Text>;
     }
 
-    return materias.map((materia) => (
-      <TouchableOpacity key={materia.idMateria} style={styles.globo} onPress={() => { 
-        setMateria(materia.idMateria);
-        navigation.navigate('Sub-Competencias');
+    return materias.map((materia) => { 
+      const imageUri = `data:image/jpeg;base64,${base64Image}`;
+
+      return (
+        <TouchableOpacity key={materia.idMateria} style={styles.globo} onPress={() => { 
+          setMateria(materia.idMateria);
+          navigation.navigate('Sub-Competencias');
         }}>
-        <View>
-          <Image source={prueba} style={styles.Image} />
-        </View>
-        <View style={styles.globoTextA}>
-          <Text style={styles.TitleMateria}>{materia.NombreMateria}</Text>
-          <Image source={Icon} style={styles.Icon} />
-        </View>
-      </TouchableOpacity>
-    ));
+          <View>
+            <Image source={{ uri: imageUri }} style={styles.Image} />
+          </View>
+          <View style={styles.globoTextA}>
+            <Text style={styles.TitleMateria}>{materia.NombreMateria}</Text>
+            {/* <Image source={{ uri: imageUri }} style={styles.Icon} /> */}
+          </View>
+        </TouchableOpacity>
+      );
+    });
   };
 
   return (
     <SafeAreaView>
-      {/* <Header/> */}
       <ScrollView style={styles.Scroll}>
         {renderMaterias()}
-        {/* <Text>Variable Global: {globalVariable}</Text> */}
       </ScrollView>
     </SafeAreaView>
   );
-} 
+}
