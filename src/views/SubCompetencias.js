@@ -35,24 +35,37 @@ export default function Materia({ navigation }) {
   useEffect(() => {
     // Consulta para obtener los detalles de cada subcompetencia
     if (subCm.length > 0) {
-      subCm.forEach(subComp => {
-        db.transaction(tx => {
-          tx.executeSql(
-            'SELECT * FROM Detalles WHERE idSubCom = ?;',
-            [subComp.idSubCom],
-            (tx, results) => {
-              let rows = results.rows._array;
-              setTemas(prevTemas => ({
-                ...prevTemas,
-                [subComp.idSubCom]: rows
-              }));
-            },
-            (tx, error) => {
-              console.log(`Error fetching details for subcompetencia ${subComp.idSubCom}`, error);
-            }
-          );
-        });
-      });
+      const fetchDetails = async () => {
+        const temasTemp = {};
+
+        await Promise.all(subCm.map(subComp => {
+          return new Promise((resolve, reject) => {
+            db.transaction(tx => {
+              tx.executeSql(
+                'SELECT * FROM Detalles WHERE idSubCom = ?;',
+                [subComp.idDetalles],
+                (tx, results) => {
+                  let rows = results.rows._array;
+                  temasTemp[subComp.idSubCom] = rows;
+                  resolve();
+                  console.log('idSubCom',subComp.idSubCom);
+                  console.log('idDeta',subComp.idMateria);
+
+                  console.log(rows);
+                },
+                (tx, error) => {
+                  console.log(`Error fetching details for subcompetencia ${subComp.idSubCom}`, error);
+                  reject(error);
+                }
+              );
+            });
+          });
+        }));
+
+        setTemas(temasTemp);
+      };
+
+      fetchDetails();
     }
   }, [subCm]);
 
@@ -65,16 +78,16 @@ export default function Materia({ navigation }) {
       <View key={SubCompetencia.idSubCom} style={styles.subComContainer}>
         <TouchableOpacity style={styles.subComSep} onPress={() => setSubComp(SubCompetencia.idSubCom)}>
           <View>
-            <Text style={styles.subComSepT}>SubCompetencia {SubCompetencia.idSubCom}</Text>
+            <Text style={styles.subComSepT}>{SubCompetencia.NombreSubCom}</Text>
           </View>
         </TouchableOpacity>
 
         <View>
-          {temas[SubCompetencia.idSubCom]?.map( ( tema ) => (
+          {temas[SubCompetencia.idSubCom]?.map((tema) => (
             <TouchableOpacity key={tema.idDetalles} style={styles.globo} onPress={() => {
               setSubComp(tema.idDetalles);
               navigation.navigate('Temas');
-            } } >
+            }}>
               <View style={styles.globoTextA}>
                 <Text style={styles.TitleMateria}>{tema.NombreDetalles}</Text>
               </View>
