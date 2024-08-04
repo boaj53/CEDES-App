@@ -59,6 +59,7 @@ export default function Materia({ navigation }) {
         }));
 
         setTemas(temasTemp);
+        console.log(temas)
       };
 
       fetchDetails();
@@ -89,7 +90,7 @@ export default function Materia({ navigation }) {
               </View>
               <View style={styles.BoxImg}>
                 <LinearGradient colors={['transparent', '#FFF0CE']} start={{ x: 1, y: 0 }} end={{ x: 0, y: 0 }} style={styles.GL} />
-                <Image source={prueba} style={styles.Image} />
+                <Image source={{ uri: `data:image/jpeg;base64,${tema.Imagen}` }} style={styles.Image} />
               </View>
             </TouchableOpacity>
           ))}
