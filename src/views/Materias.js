@@ -23,7 +23,7 @@ export default function Materia({ navigation }) {
         (tx, results) => {
           let rows = results.rows._array;
           _setMaterias(rows);
-          console.log(rows);
+          // console.log(rows);
         },
         (tx, error) => {
           console.log("Error fetching data from database", error);
@@ -38,7 +38,7 @@ export default function Materia({ navigation }) {
     }
 
     return materias.map((materia) => { 
-      const imageUri = `data:image/jpeg;base64,${base64Image}`;
+      const imageUri = `data:image/jpeg;base64,${materia.Imagen}`;
 
       return (
         <TouchableOpacity key={materia.idMateria} style={styles.globo} onPress={() => { 
@@ -50,7 +50,6 @@ export default function Materia({ navigation }) {
           </View>
           <View style={styles.globoTextA}>
             <Text style={styles.TitleMateria}>{materia.NombreMateria}</Text>
-            {/* <Image source={{ uri: imageUri }} style={styles.Icon} /> */}
           </View>
         </TouchableOpacity>
       );
