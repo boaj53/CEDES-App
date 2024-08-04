@@ -5,8 +5,6 @@ import { LinearGradient } from 'expo-linear-gradient';
 import DynamicHeader from "./Titulo";
 import { GlobalContext } from "../../database/GlobalContext";
 
-import Background from "../../images/concept.jpg"
-import Doc from "../../images/doc.png"
 import styles from "../../styles/styleTema";
 import { Link } from '@react-navigation/native';
 
@@ -30,15 +28,16 @@ export default function Tema () {
             console.log("Error fetching data from database", error);
             }
         );
+        // console.log(Detalle);
         });
     }, [SubComp]); 
 
     // let scrollOffsetY = useRef(new Animated.Value(0)).current;
 
     const Back = () => {
-        return (
-            <Image source={Background} style={styles.imgBack} />
-        )
+        return Detalle.map((D) => (
+            <Image source={{ uri: `data:image/jpeg;base64,${D.Imagen}` }} style={styles.imgBack} />
+        ))
     }
 
     const BtnArchivar = () => {
@@ -86,7 +85,7 @@ export default function Tema () {
     }
     
     return (
-        <SafeAreaView>
+        <SafeAreaView style={ styles.bg }>
             <Back />
             {/* <BtnArchivar /> */}
             <ScrollView >

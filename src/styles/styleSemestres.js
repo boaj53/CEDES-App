@@ -4,6 +4,7 @@ const styles = StyleSheet.create({
 
     Scroll:{
         height:'82%',
+        backgroundColor:'#0174BE',
         // paddingTop:10, 
         // Gap:40,
     },
@@ -24,7 +25,7 @@ const styles = StyleSheet.create({
         flexDirection:'row',
     },
     globoBB:{
-        height:170,
+        height:225,
         width:'50%',
         // borderWidth:2, 
         backgroundColor: '#0174BE',
@@ -34,15 +35,15 @@ const styles = StyleSheet.create({
         flexDirection:'row',
     },
     globoBY:{
-        height:170,
+        height:225,
         width:'50%', 
-        backgroundColor: '#FFF0CE',
+        backgroundColor: '#FFFADD',
         // marginBottom:10,
         flex:1,
         flexDirection:'row',
     },
     globoF:{
-        height:167,
+        height:180,
         width:'100%', 
         backgroundColor: '#FFF0CE',
         // marginBottom:10,
@@ -79,7 +80,7 @@ const styles = StyleSheet.create({
         height: '100%',
         width: '100%',
         position:'absolute',
-        tintColor:'yellow',
+        tintColor:'#FFFADD',
         zIndex:-1,
     },
 });

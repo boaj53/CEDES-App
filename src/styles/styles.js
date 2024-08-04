@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     container: {
         position:'absolute',
         bottom:0,
-        height:'45%',
+        height:'35%',
         width:'100%',
         // flex:1,
         gap:10,
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     },
     Imge:{
         position:'absolute',
-        height:500,
+        height:'70%',
         width:'100%',
         zIndex:0,
         // tintColor:'gray' ,
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     },
     GL: {
         position:'absolute',
-        bottom: '45%',
+        bottom: '35%',
 
         height: 100,
         width: '100%',
@@ -79,8 +79,8 @@ const styles = StyleSheet.create({
         color: '#0174BE',
     },
     boton: {
-        paddingVertical:10,
-        marginTop:40,
+        paddingVertical:15,
+        marginTop:30,
         backgroundColor: '#0174BE',
         borderRadius: 10,
         justifyContent: 'center',
@@ -88,7 +88,12 @@ const styles = StyleSheet.create({
     },
     botonTxt: {
         color: '#fff',
-        fontSize: 20, 
+        fontSize: 27, 
+    },
+    Bienv:{
+        color: '#FFC436',
+        fontSize: 22,
+        textAlign: 'center'
     }
   });
 

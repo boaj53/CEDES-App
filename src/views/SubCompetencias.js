@@ -42,7 +42,7 @@ export default function Materia({ navigation }) {
           return new Promise((resolve, reject) => {
             db.transaction(tx => {
               tx.executeSql(
-                'SELECT * FROM Detalles WHERE idSubCom = ?;',
+                'SELECT NombreDetalles, idDetalles, Imagen FROM Detalles WHERE idSubCom = ?;',
                 [subComp.idSubCom],
                 (tx, results) => {
                   let rows = results.rows._array;
@@ -59,7 +59,7 @@ export default function Materia({ navigation }) {
         }));
 
         setTemas(temasTemp);
-        console.log(temas)
+        // console.log(temasTemp)
       };
 
       fetchDetails();

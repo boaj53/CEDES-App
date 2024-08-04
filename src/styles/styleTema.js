@@ -1,6 +1,10 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create ({
+        bg:{
+            height:'100%',
+            backgroundColor:'#0C356A'
+        },
         body: {
             flex:1,
             justifyContent: 'center',

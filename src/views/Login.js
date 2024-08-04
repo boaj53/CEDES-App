@@ -23,10 +23,15 @@ function Login({ navigation })
         <Image source={UnachLogo} style={styles.filter2} /> 
   
         <LinearGradient colors={['transparent', '#0C356A']} style={styles.GL}>
-          <Text style={styles.titulo}>Ingresa tu usuario</Text>
+          <Text style={styles.titulo}>CEDES APP</Text>
         </LinearGradient>
         
         <SafeAreaView style={styles.container}>
+          <Text style={styles.Bienv}> Bienvenido a la aplicacion de la Licenciatura en Estadistica y Sistemas de Informacion </Text>
+
+          {/* 
+                Esta parte puede ser adaptada para crear un login
+
           <Text style={styles.texto}>Correo electronico</Text>
           <TextInput style={styles.Caja_correo} 
             placeholder='alumno01@ejemplo.com' placeholderTextColor='#0174BE' autoComplete='email' textContentType='emailAddress'>
@@ -34,7 +39,7 @@ function Login({ navigation })
           <Text style={styles.texto}>Contraseña</Text>
           <TextInput style={styles.Caja_contraseña} 
             placeholder='********' placeholderTextColor='#0174BE' textContentType='password' secureTextEntry={true}>
-          </TextInput>
+          </TextInput> */}
   
           <TouchableOpacity style={styles.boton} onPress = { () => {navigation.navigate('semestres')} }>
             <Text style={styles.botonTxt}>Ingresa</Text>
