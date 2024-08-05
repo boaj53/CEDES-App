@@ -1,13 +1,13 @@
 {
   "expo": {
-    "name": "cedes-app",
+    "name": "Cedes App",
     "slug": "cedes-app",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/cedes_w.png",
+    "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/cedes_w.png",
+      "image": "./assets/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -22,22 +22,10 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/cedes_w.png",
         "backgroundColor": "#ffffff"
-      },
-      "package": "com.cedrick01.cedesapp"
+      }
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    },
-    "extra": {
-      "eas": {
-        "projectId": "4f473a2f-c358-44fd-a949-cea6cc51e5c2"
-      }
-    },
-    "runtimeVersion": {
-      "policy": "appVersion"
-    },
-    "updates": {
-      "url": "https://u.expo.dev/4f473a2f-c358-44fd-a949-cea6cc51e5c2"
     }
   }
 }
